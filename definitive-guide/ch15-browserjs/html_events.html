@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+
+<!-- 这是一个用来体现自定义事件的一个例子 -->
+<html>
+    <head>
+        <title>Digital Clock</title>
+        <style>
+            #clock {
+                font: bold 24px sans-serif;
+                background: #ddf;
+                padding: 15px;
+                border: solid black 2px;
+                border-radius: 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <div>Digital Clock</div>
+        <span id="clock">
+            TODE
+        </span>
+        <hr>
+        <button id="mybutton">Click me</button>
+        <script>
+           // 这个文章主要是用来说明如何处理事件
+           // 包含添加事件处理程序
+           // 
+           let b = document.querySelector("#mybutton");
+        //    b.onclick = function() {
+        //        console.log("Thanks for clicking me");
+        //    }
+        //    b.addEventListener("click", function() {
+        //        console.log("Thanks again");
+        //    });
+           
+           // 添加事件处理程序的时候如何指定属性
+           // 
+           b.addEventListener("click", function() {
+               console.log("Thanks again");
+           });
+           b.onclick = function() {
+               console.log("Thanks for clicking me");
+           }
+           b.onclick = function() {
+            // 这个会覆盖上面的 "Thanks for clicking me"
+               console.log("Guess what - Thanks");
+           }
+
+           // 事件处理程序的移除
+           document.removeEventListener("mousemove", handleMouseMove);
+           document.removeEventListener("mouseUp", handleMouseUp);
+
+           // 事件处理程序还有可选的参数
+           document.addEventListener("click", function(event) {
+               console.log(event.clientX, event.clientY);
+           }, {
+                capture: true,
+                once: true,
+                passive: true
+           });
+          // capture: 事件会被注册为事件的捕获阶段
+          // once: 事件处理程序只会被调用一次
+          // passive: 事件处理程序不会调用preventDefault()方法
+
+        </script>
+    </body>
+</html>

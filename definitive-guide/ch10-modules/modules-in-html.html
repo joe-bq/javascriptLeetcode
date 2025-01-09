@@ -1,0 +1,18 @@
+<html>
+    <meta charset="utf-8">
+    <head></head>
+    <body>
+        <!-- 
+            说明： 
+            1. module方式的模块， 限制于同源策略， 不能跨域加载模块
+            2. 另外： type="module" 会在html解析时候下载， 但是会推迟到整个文档解析完成后执行
+            3. type="async"会在html解析时候下载， 一旦下载结束即可以执行
+            4. 支持 type="module" 的浏览器： Chrome 61+, Firefox 60+, Safari 10.1+, Edge 16+, 他们也必须支持 nomodule 属性
+        -->
+        <script type="module">
+            // import { sayHello } from './modules-in-html.js';
+            // sayHello();
+            import "./main.js";
+        </script>
+    </body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+
+<!-- 这是一个使用 -->
+<html>
+    <head>
+        <title>inline-circle</title>
+        <style>
+        </style>
+        <script src="./scripts/components/inline-circle.js"></script>
+    </head>
+    <body>
+        <![CDATA[ 
+        // 一个元素有一个阳关root
+        // 同时也有一些影子的root
+        // 
+
+        // 1 - 影子DOM中的元素对 querySelectorAll() 不可见
+        // 2- 影子根节点下定义的样式对该子树是私有的
+        // 3 - 影子根节点下的某些事件 ("load", ) 会被封闭在影子节点：DOM中
+
+        // 影子DOM插槽和阳光子元素
+        // 1 - 影子根节点的后代始终包含在影子宿主内
+        // 2 - 如果这些后代中包含一个<slot>元素，那么宿主元素的常规阳光DOM子元素会像他们本来就是该<slot>的子元素一样显示, 如果影子DOM不包含<slot></slot>，那么阳光的DOM内容永远不会被显示，如果影子DOM中有一个<slot></slot>，但影子宿主没有阳光DOM子元素，那么该插槽的影子DOM内容作为默认元素显示
+        // 3 - 当阳光DOM内容显示在影子DOM插槽中时，我们说那些元素时“已分配”(distributed)，此时关键需要理解，那些元素并为变成影子DOM的一部分，是额用querySelectorAll()无法找到的,他们依然作为宿主元素的子 元素或者是后代出现在阳光DOM中
+        // 4 - 如果DOM定义了多个<slot>且通过name属性作为它们命名，那么影子属猪的阳光DOM后台可以痛殴slot="slotname"来指定插槽的内容属性指定自己想出现在哪个插槽中
+        ]]>
+    </body>
+</html>

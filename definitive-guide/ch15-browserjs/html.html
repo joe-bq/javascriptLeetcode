@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Digital Clock</title>
+        <style>
+            #clock {
+                font: bold 24px sans-serif;
+                background: #ddf;
+                padding: 15px;
+                border: solid black 2px;
+                border-radius: 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <div>Digital Clock</div>
+        <span id="clock">
+
+        </span>
+
+        <script src="./scripts/digital_clock.js">
+            // displayTime();
+            // setInterval(displayTime, 1000);
+        </script>
+        <!--
+        <script>
+            // 定义一个函数，显示当前的时间
+            function displayTime() {
+                let clock = document.querySelector("#clock");
+                let now = new Date();
+                clock.textContent = now.toLocaleTimeString();
+            }
+            displayTime();
+            setInterval(displayTime, 1000);
+        </script>
+        -->
+    </body>
+</html>

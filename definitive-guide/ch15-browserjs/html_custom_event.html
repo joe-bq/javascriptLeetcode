@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<!-- 这是一个用来体现自定义事件的一个例子 -->
+<html>
+    <head>
+        <title>Digital Clock</title>
+        <style>
+            #clock {
+                font: bold 24px sans-serif;
+                background: #ddf;
+                padding: 15px;
+                border: solid black 2px;
+                border-radius: 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <div>Digital Clock</div>
+        <span id="clock">
+        </span>
+        <script>
+            document.dispatchEvent(new CustomEvent("busy", { detail: true }));
+
+            fetch(url)
+            .then(handleNetworkResponse)
+            .catch(handleNetworkError)
+            .finally(() => {
+                // 不管是网络请求是成功还是失败，都再派发
+                //一个事件，通知UI自己已经不忙了
+                document.dispatchEvent(new CustomEvent("busy", { detail: false }));
+            });
+
+            document.addEventListener("busy", (event) => {
+                if (event.detail) {
+                    showSpinner();
+                } else {
+                    hideSpinner();
+                }
+            });
+        </script>
+    </body>
+</html>

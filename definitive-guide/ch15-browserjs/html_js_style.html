@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+
+<!-- 这是一个用来体现自定义事件的一个例子 -->
+<html>
+    <head>
+        <title>Digital Clock</title>
+        <style>
+            .hidden {
+                display: none;
+            }
+        </style>
+        <link rel="stylesheet" href="./css/toc.css">
+    </head>
+    <body>
+        <div>Digital Clock</div>
+        <span id="tooltip">
+            This is a tooltip
+        </span>
+        <script>
+            // 通过这个方法让他变得可见
+            document.querySelector('#tooltip').classList.remove('hidden');
+            // 通过这个方法让他隐藏起来
+            document.querySelector('#tooltip').classList.add('hidden');
+
+
+            // 通过行内样式来设置元素的样式
+            function displayAt(tooltip, x, y) {
+                tooltip.style.displae = 'block';
+                tooltip.style.position = 'absolute';
+                tooltip.style.left = x + 'px';
+                tooltip.style.top = y + 'px';
+            }
+
+            // 一些CSSStyleDeclaration的属性
+            // 与实际的CSS属性稍微有点不同
+            // display: block; font-family: sans-serif; background-color: #ffffff;
+            // 所有的属性都是字符串
+            e.style.display = 'block';
+            e.style.fontFamily = 'sans-serif';
+            e.style.backgroundColor = '#ffffff';
+            t.style.marginLeft = '300px';
+
+            // 如果想计算某些通过计算得到的值，也需要使用单位
+            e.style.width = `${top}px ${left}px ${bottom}px ${right}px`;
+
+            // 如果想复制属性
+            // 可以使用getAttribute()和setAttribute()方法
+            f.setAttribute('style', e.getAttribute('style'));
+
+            // 或者可以使用 
+            f.style.cssText = e.style.cssText;
+
+            // =======
+            // 查询计算样式
+            let tiile = document.querySelector('#section1title');
+
+            // 获取计算样式
+            let style = window.getComputedStyle(title);
+            let beforeStyle = window.getComputedStyle(titile, "::before");
+
+            // 这个函数切换主题
+            function toggleTheme() {
+                let theme = document.documentElement.getAttribute('data-theme');
+                if (theme === 'light') {
+                    document.documentElement.setAttribute('data-theme', 'dark');
+                } else {
+                    document.documentElement.setAttribute('data-theme', 'light');
+                }
+            }
+
+
+            // 树上的例子
+            function toggleTheme() {
+                let lightTheme = document.querySelector('#light-theme');
+                let darkTheme = document.querySelector('#dark-theme');
+                if (darkTheme.disabled) {
+                    lightTheme.disabled = true;
+                    darkTheme.disabled = false;
+                } else {
+                    lightTheme.disabled = false;
+                    darkTheme.disabled = true;
+                }
+            }
+
+            // 另一个操作样式表的简单方式是通过样式表（动态）
+            function setTheme(theme) {
+                // 创建新 <link rel="stylesheet"> 元素, 用以加载指定的name的样式表
+                let link = document.createElement('link');
+                link.rel = 'stylesheet';
+                link.id = "theme";
+                link.href = `./css/${theme}.css`;
+
+                // 通过id="theme"的元素来替换当前的样式表
+                let currentTheme = document.querySelector('#theme');
+                if (currentTheme) {
+                    // replaceWith 可以替代当前的元素
+                    currentTheme.replaceWith(link);
+                } else {
+                    document.head.appendChild(link);
+                }
+            }
+
+            // 或者通过向文档插入一段包含<style>标签的HTML字符串，也可以动态地插入样式表
+            document.head.insertAdjacentElement(
+                'beforeend', // 锚点
+                "<style>body { transform: rotate(180deg) }</style>");
+        </script>
+
+    </body>
+</html>
